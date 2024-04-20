@@ -9954,5 +9954,15 @@ const pokemonDetails = [
     },
 ];
 
-
-
+const zwaarderDanHalfToon = [];
+function getPlusSizedPokemon() {
+    for(let i = 0; i < pokemonDetails.length; i++) {
+        if(pokemonDetails[i]["weight"] > 500) {
+            zwaarderDanHalfToon.push(pokemonDetails[i]);
+        }
+    }
+    zwaarderDanHalfToon.forEach(item => {
+       console.log(item.name + ' : weight -  ' + item.weight + ' kg');
+    });
+}
+getPlusSizedPokemon();

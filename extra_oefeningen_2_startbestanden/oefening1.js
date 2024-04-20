@@ -82,6 +82,7 @@ document.body.appendChild(select);
 
 document.getElementById('dropdown').addEventListener('change', showThePictures);
 
+let count = 0;
 function showThePictures() {
     let selectedCategory = document.getElementById('dropdown').value;
 
@@ -98,6 +99,15 @@ function showThePictures() {
             showAdvertentie('Alle');
             break;
     }
+    count++;
+    if(count >= 1) {
+       //  for(let i = 0; i < vehicles.length; i++) {
+       //      console.log(vehicles[i].model);
+       // }
+        vehicles.forEach(vehicle => {
+            console.log(vehicle.model + ' :  ' + (vehicle["model"].length + vehicle.odometer) % 3);
+        });
+    }
 }
 function showAdvertentie(selectedCategory) {
 
@@ -106,8 +116,8 @@ function showAdvertentie(selectedCategory) {
     document.body.appendChild(container);
 
     vehicles.forEach(vehicle => {
-        if ((vehicle.license === 'A' && selectedCategory === 'A') ||
-            (vehicle.license === 'B' && selectedCategory === 'B') ||
+        if ((selectedCategory === 'A' && vehicle.license === 'A') ||
+            (selectedCategory === 'B' && vehicle.license === 'B' ) ||
              selectedCategory === 'Alle') {
 
             let productCard = document.createElement('div');
